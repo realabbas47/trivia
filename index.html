@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section 1">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    How many legs does a Human have?
+                </h3>
+
+                    <button class="w">1 Leg</button>
+                    <button class="r">2 Legs</button>
+                    <button class="w">3 Legs</button>
+                    <button class="w">4 Legs</button>
+                    <button class="w">5 Legs</button>
+                    <button class="w">6 Legs</button>
+                    <button class="w">7 Legs</button>
+                    <button class="w">8 Legs</button>
+
+                <p id="q1"></p>
+            </div>
+
+            <div class="section 2">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    What is the capital of Canada?
+                </h3>
+                <form onsubmit="checkAnswer(); return false;">
+                    <input autocomplete="off" type="text" name="question2" value="">
+                    <button type="submit" name="submit">Check Answer</button>
+                </form>
+                <p id="q2"></p>
+            </div>
+            <script>
+                function checkAnswer() {
+                    let answer = document.querySelector('input[name="question2"]');
+                    let name = document.querySelector('#q2');
+                    if (answer.value == "Ottawa") {
+                        name.innerHTML = "Correct!";
+                        answer.style.backgroundColor = "green";
+                    } else {
+                        name.innerHTML = "Incorrect!";
+                        answer.style.backgroundColor = "red";
+                    }
+                }
+
+
+                    let correct = document.querySelector('.r');
+                    correct.addEventListener("click", function() {
+                        document.querySelector('#q1').innerHTML = "Correct!";
+                        correct.style.backgroundColor = "green";
+                    });
+                    let wrong = document.querySelectorAll('.w');
+                    for (let i = 0; i < wrong.length; i++) {
+                        wrong[i].addEventListener("click", function() {
+                            document.querySelector('#q1').innerHTML = "Incorrect!";
+                            wrong[i].style.backgroundColor = "red";
+                        });
+                    }
+
+            </script>
+        </div>
+    </body>
+</html>
